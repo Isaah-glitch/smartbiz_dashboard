@@ -1,42 +1,46 @@
 # SmartBiz Dashboard
 
-A simple and clean **Django-based Dashboard** for managing products, orders, and users. This project provides an admin panel with CRUD functionality for products, orders, and user management, along with authentication features.
+SmartBiz Dashboard is a Django-based web application for managing products, orders, and users in a small business environment. It provides a clean, responsive interface for tracking inventory, processing orders, and managing user accounts.
 
 ---
 
 ## Features
 
-- **User Management**: Add, edit, delete users.
-- **Product Management**: Add, edit, delete products.
-- **Order Management**: Add, edit, delete orders and track their status.
-- **Authentication**: Login and registration system.
-- **Responsive Dashboard**: Styled using Bootstrap 5 and custom CSS.
-- **Single CSS File**: Consistent styling across all pages using `style.css`.
+- **Dashboard Home:** Quick overview of system stats.
+- **Products Management:** Add, edit, delete, and view products.
+- **Orders Management:** Track orders, including customer details, product, quantity, and status.
+- **Users Management:** Add, edit, delete, and view users.
+- **Authentication:** Login and register users with secure authentication.
+- **Responsive Design:** Mobile-friendly UI using Bootstrap 5.
+- **Single CSS file:** All pages share a unified styling using `style.css`.
 
 ---
 
 ## Screenshots
 
-**Login Page:**  
-![Login](screenshots/login.png)
-
-**Dashboard Page:**  
+### Dashboard Home
 ![Dashboard](screenshots/dashboard.png)
 
-**Products Page:**  
+### Products Page
 ![Products](screenshots/products.png)
 
-**Orders Page:**  
+### Orders Page
 ![Orders](screenshots/orders.png)
 
-**Users Page:**  
+### Users Page
 ![Users](screenshots/users.png)
+
+### Login Page
+![Login](screenshots/login.png)
+
+### Register Page
+![Register](screenshots/register.png)
 
 ---
 
 ## Installation
 
-1. **Clone the repository**
+1. Clone the repository:
 
 ```bash
 git clone git@github.com:Isaah-glitch/smartbiz_dashboard.git
