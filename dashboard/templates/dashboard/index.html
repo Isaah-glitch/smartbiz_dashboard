@@ -1,0 +1,58 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<div class="card-container">
+    <div class="card">
+        <h3>Products</h3>
+        <p>{{ products_count }}</p>
+    </div>
+    <div class="card">
+        <h3>Orders</h3>
+        <p>{{ orders_count }}</p>
+    </div>
+    <div class="card">
+        <h3>Users</h3>
+        <p>{{ users_count }}</p>
+    </div>
+</div>
+
+<h3>Recent Orders</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Status</th>
+    </tr>
+    {% for order in recent_orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.customer_name }}</td>
+        <td>{{ order.product.name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Recent Products</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Stock</th>
+        <th>Price</th>
+    </tr>
+    {% for product in recent_products %}
+    <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.stock }}</td>
+        <td>${{ product.price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

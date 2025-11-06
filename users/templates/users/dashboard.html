@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartBiz Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>SmartBiz</h2>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'user_list' %}">Users</a>
+        <a href="#">Products</a>
+        <a href="#">Orders</a>
+        <a href="#">Settings</a>
+        <a href="{% url 'logout' %}" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Dashboard Overview</h1>
+            <p>Welcome, {{ request.user.username }}</p>
+        </header>
+
+        <!-- Summary Cards -->
+        <section class="cards">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+            <div class="card">
+                <h3>Products</h3>
+                <p>{{ total_products }}</p>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>${{ total_revenue }}</p>
+            </div>
+        </section>
+
+        <!-- Recent Orders -->
+        <section class="orders">
+            <h2>Recent Orders</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                {% for order in recent_orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.customer }}</td>
+                    <td>${{ order.amount }}</td>
+                    <td>{{ order.status }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No orders found</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <button>Add Product</button>
+            <button>Create Order</button>
+        </section>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

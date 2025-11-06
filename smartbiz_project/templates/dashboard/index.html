@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Dashboard Home{% endblock %}
+
+{% block content %}
+<h2>Welcome to the Dashboard</h2>
+<p>This is your main dashboard page. Use the menu to navigate.</p>
+
+<div class="row mt-4">
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text">Manage all registered users.</p>
+                <a href="{% url 'users' %}" class="btn btn-light">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                <p class="card-text">View and manage products.</p>
+                <a href="{% url 'products' %}" class="btn btn-light">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Orders</h5>
+                <p class="card-text">Track all customer orders.</p>
+                <a href="{% url 'orders' %}" class="btn btn-light">Go</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

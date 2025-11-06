@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<h2>Orders</h2>
+
+<div class="actions">
+    <a href="{% url 'dashboard:add_order' %}" class="btn btn-add">Add Order</a>
+</div>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.customer_name }}</td>
+            <td>{{ order.product.name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.status|capfirst }}</td>
+            <td>
+                <a href="{% url 'dashboard:edit_order' order.id %}" class="btn btn-edit">Edit</a>
+                <a href="{% url 'dashboard:delete_order' order.id %}" class="btn btn-delete">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No orders found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

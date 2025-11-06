@@ -1,0 +1,33 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<h2>Users</h2>
+
+<div class="actions">
+    <a href="{% url 'dashboard:add_user' %}" class="btn btn-primary">Add User</a>
+</div>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="{% url 'dashboard:edit_user' user.id %}" class="btn btn-edit">Edit</a>
+                <a href="{% url 'dashboard:delete_user' user.id %}" class="btn btn-delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
