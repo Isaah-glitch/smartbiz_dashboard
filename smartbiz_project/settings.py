@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-6t@_^t-c&68=@@a1-9!4qj2cakslyydjoa*ns%wd-$xdiyq-68
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['smartbiz-url.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['smartbiz-dashboard-1.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 
